@@ -21,7 +21,7 @@ const BlogPreview: React.FunctionComponent<IBlogPreviewProps> = ({ _id, children
           style={{
             textDecoration: "none"
           }}
-          className="text-primary"
+          className="text-secondary"
         >
           <h1><strong>{title}</strong></h1>
           <h4>{headline}</h4><br />
