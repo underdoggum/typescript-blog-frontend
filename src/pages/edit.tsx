@@ -100,6 +100,8 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
     }
   }
 
+  // Form onSubmit is handled in Reactstrap the same way as Bootstrap, so there's no need to create a separate handleSubmit function or handleChange within React
+  // see docs: https://getbootstrap.com/docs/5.1/forms/overview/
   if (loading) {
     return <h1>Loading...</h1>
   } else {
@@ -156,7 +158,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
             </FormGroup>
             <FormGroup>
               <Button
-                block={true}
+                outline={true}
                 onClick={() => {
                   if (_id !== "") {
                     editBlog(_id);
