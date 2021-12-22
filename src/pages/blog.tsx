@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 
 import IPageProps from "../interfaces/page";
 import IBlog from "../interfaces/blog";
-import { Button, Container, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { Button, Container, Modal, ModalBody, ModalFooter, Card, CardBody, Row, Col } from "reactstrap";
 import Navigation from "../components/navigation";
 import Header from "../components/header";
 
@@ -72,12 +72,12 @@ import Header from "../components/header";
       return (
         <Container fluid={true} className="p-0">
           <Navigation />
-          <Modal isOpen={modalIsOpened}>
+          <Modal isOpen={modalIsOpened} area-labelledBy="contained-modal-vcenter" centered={true}>
             <ModalBody>
-              {isDeleting ? <h1>Loading...</h1> : <h3>{`Confirm deletion of "${blog.title}"?`}</h3>}
+              {isDeleting ? <h1>Loading...</h1> : <h3>{`Sure you want to delete "${blog.title}"?`}</h3>}
             </ModalBody>
             <ModalFooter>
-              <Button color="danger" onClick={deleteBlog}>DELETE</Button>
+              <Button className="mr-4" color="danger" onClick={deleteBlog}>DELETE</Button>
               <Button color="secondary" onClick={() => setModalIsOpened(false)}>Cancel</Button>
             </ModalFooter>
           </Modal>
@@ -92,16 +92,20 @@ import Header from "../components/header";
             </p>
           </Header>
           <Container className="mt-5">
-            <Container fluid={true} className="p-0">
-              <Button color="warning" className="mr-2" tag={Link} to={`/edit/${blog._id}`}>
-                Edit&nbsp;&nbsp;&nbsp;<i className="fas fa-edit"></i>
-              </Button>
-              <Button color="danger" onClick={() => setModalIsOpened(true)}>
-                Delete&nbsp;&nbsp;&nbsp;<i className="fas fa-trash"></i>
-              </Button>
-            </Container>
             {/* the below is necessary for showing inner HTML as marked up in WYSIWYG. Also see React docs on this property: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml */}
-            <div className="pt-5" dangerouslySetInnerHTML={{__html: blog.body}}/>
+            <Card className="mt-5"><CardBody><div className="pt-5" dangerouslySetInnerHTML={{__html: blog.body}}/></CardBody></Card>
+            <Container fluid={true} className="p-0 mt-4">
+              <Row className="justify-content-md-center">
+                <Col md="auto">
+                  <Button color="warning" className="mr-4" tag={Link} to={`/edit/${blog._id}`}>
+                    Edit&nbsp;&nbsp;&nbsp;<i className="fas fa-edit"></i>
+                  </Button>
+                  <Button color="danger" onClick={() => setModalIsOpened(true)}>
+                    Delete&nbsp;&nbsp;&nbsp;<i className="fas fa-trash"></i>
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
           </Container>
         </Container>
       )

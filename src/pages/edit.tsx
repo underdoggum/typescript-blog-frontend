@@ -162,6 +162,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
             <FormGroup>
               {/* need validation on this part */}
               <Button
+                color={_id !== "" ? "warning" : "primary"}
                 outline={true}
                 onClick={() => {
                   if (_id !== "") {
@@ -171,7 +172,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
                   }
                 }}
               >{_id !== "" ? "Update Blog" : "Create Blog"}</Button>
-              <Button className="ml-3" onClick={() => {navigate(`/blogs/${_id}`)}}>Cancel</Button>
+              <Button className="ml-3" onClick={() => {navigate("/")}}>Cancel</Button>
             </FormGroup>
           </Form>
         </Container>
