@@ -19,7 +19,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
   const url = "https://typescript-blog-backend.herokuapp.com/blogs/";
   const navigate = useNavigate();
 
-
+  // State variables
   const [_id, setId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
@@ -70,7 +70,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
   const createBlog = async () => {
     setSaving(true);
     try {
-      const response = await fetch(url, {
+      await fetch(url, {
         method: "post",
         headers: {
           "Content-Type": "application/json"
@@ -83,15 +83,12 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
       navigate("/");
     }
   }
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // https://youtu.be/0pPlbLyeclI?t=841
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
   // Editing a blog post
   const editBlog = async (id: string) => {
     setSaving(true);
     try {
-      const response = fetch(url + id, {
+      fetch(url + id, {
         method: "put",
         headers: {
           "Content-Type": "application/json"

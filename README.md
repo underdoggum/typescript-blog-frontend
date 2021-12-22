@@ -7,4 +7,11 @@ After all, nobody wants to be stuck fixing menial bugs at 11pm the evening befor
 
 ## Challenges
  - Problem: Using the [React Draft WYSIWYG](https://jpuri.github.io/react-draft-wysiwyg/#/docs?_k=jjqinp) library, fetching blogs within the top-level component ("Home") didn't edit correctly.
-  Solution: Per the docs above, set the "editing state" within the blog getter function as a *state variable* for individual blogs
+  Solution: Per the docs above, you must set the "editing state" within the blog getter function as a *state variable* for individual blogs
+ - Problem: TypeScript can be annoying sometimes. In "blog.tsx", you cannot easily render a "blog" property unless TypeScript is absolutely sure that "blog" will not be null (as it was initialized as null in useState)
+  Solution: Add a higher-level conditional if-statement to explicitly tell TypeScript to render that property if it is not null (otherwise, return "Loading...")
+
+
+  ## Ideas for the future
+ - Implement user auth
+ - Implement pictures on sidebars with modern tech news
