@@ -13,7 +13,7 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
     <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blogs/:id" element={<BlogPage />} />
         <Route path="/edit/:id" element={<EditPage />} />
         <Route path="/edit" element={<EditPage />} />
 

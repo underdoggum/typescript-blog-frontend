@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import IPageProps from "../interfaces/page";
 import IBlog from "../interfaces/blog";
@@ -21,13 +21,18 @@ import Header from "../components/header";
     const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
     useEffect(() => {
-      
+      console.log(blogId)
+      // getBlog(blogId);
       if (blogId) {
         setId(blogId);
       } else {
         // if the blogId hasn't been set, re-route back to home page
         navigate("/");
       }
+    }, []);
+
+    useEffect(() => {
+      getBlog(_id);
     }, []);
     
     // Fetch current blog
@@ -62,6 +67,7 @@ import Header from "../components/header";
       }
     }
     
+    if (loading) return <h1>Actually loading...</h1>
     if (blog) {
       return (
         <Container fluid={true} className="p-0">
@@ -88,6 +94,18 @@ import Header from "../components/header";
               {/* {blog.createdAt !== blog.updatedAt ? <br />"Updated at:" + new Date(blog.updatedAt).toLocaleString()} */}
             </p>
           </Header>
+          <Container className="mt-5">
+            <Container fluid={true} className="p-0">
+              <Button color="info" className="mr-2" tag={Link} to={`/edit/${blog._id}`}>
+                Edit<i className="fas fa-edit mr-2"></i>
+              </Button>
+              <Button color="danger" onClick={() => setModalIsOpened(true)}>
+                Delete<i className="fas fa-trash-alt mr-2"></i>
+              </Button>
+            </Container>
+            {/* the below is necessary for showing inner HTML as marked up in WYSIWYG. Also see React docs on this property: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml */}
+            <div dangerouslySetInnerHTML={{__html: blog.body}}/>
+          </Container>
         </Container>
       )
     } else {
