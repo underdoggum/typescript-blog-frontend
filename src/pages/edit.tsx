@@ -169,6 +169,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
                   }
                 }}
               >{_id !== "" ? "Update Blog" : "Create Blog"}</Button>
+              <Button className="ml-3" onClick={() => {navigate(`/blogs/${_id}`)}}>Cancel</Button>
             </FormGroup>
           </Form>
         </Container>

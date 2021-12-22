@@ -67,17 +67,14 @@ import Header from "../components/header";
       }
     }
     
-    if (loading) return <h1>Actually loading...</h1>
+    if (loading) return <h1>Loading...</h1>
     if (blog) {
       return (
         <Container fluid={true} className="p-0">
           <Navigation />
           <Modal isOpen={modalIsOpened}>
-            <ModalHeader>
-              Delete
-            </ModalHeader>
             <ModalBody>
-              {isDeleting ? <h1>Loading...</h1> : <h1>{`Confirm deletion of "${blog.title}"?`}</h1>}
+              {isDeleting ? <h1>Loading...</h1> : <h3>{`Confirm deletion of "${blog.title}"?`}</h3>}
             </ModalBody>
             <ModalFooter>
               <Button color="danger" onClick={deleteBlog}>DELETE</Button>
@@ -96,15 +93,15 @@ import Header from "../components/header";
           </Header>
           <Container className="mt-5">
             <Container fluid={true} className="p-0">
-              <Button color="info" className="mr-2" tag={Link} to={`/edit/${blog._id}`}>
-                Edit<i className="fas fa-edit mr-2"></i>
+              <Button color="warning" className="mr-2" tag={Link} to={`/edit/${blog._id}`}>
+                Edit&nbsp;&nbsp;&nbsp;<i className="fas fa-edit"></i>
               </Button>
               <Button color="danger" onClick={() => setModalIsOpened(true)}>
-                Delete<i className="fas fa-trash-alt mr-2"></i>
+                Delete&nbsp;&nbsp;&nbsp;<i className="fas fa-trash"></i>
               </Button>
             </Container>
             {/* the below is necessary for showing inner HTML as marked up in WYSIWYG. Also see React docs on this property: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml */}
-            <div dangerouslySetInnerHTML={{__html: blog.body}}/>
+            <div className="pt-5" dangerouslySetInnerHTML={{__html: blog.body}}/>
           </Container>
         </Container>
       )
