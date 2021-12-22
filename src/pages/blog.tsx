@@ -33,7 +33,7 @@ import Header from "../components/header";
 
     useEffect(() => {
       getBlog(_id);
-    }, []);
+    }, [_id]);
     
     // Fetch current blog
     const getBlog = async (id: string) => {

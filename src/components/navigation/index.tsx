@@ -5,7 +5,7 @@ export interface INavigationProps {}
 
 const Navigation: React.FunctionComponent<INavigationProps> = props => {
   return (
-    <Navbar color="light" light={true} sticky="top" expand="md">
+    <Navbar color="light" light={true} sticky="top" expand="sm" className="p-2">
       <Container>
         <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
         <Nav className="mr-auto" navbar />
