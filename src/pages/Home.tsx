@@ -37,7 +37,7 @@ import IBlog from "../interfaces/blog";
          headline="A journey in modern Software Engineering"
         />
         <Container className="mt-5">
-          {blogs.length === 0 ? <p>No blogs created yet. <Link to="/edit">What's on your mind?</Link></p> : ""}
+          {blogs.length === 0 ? <h1>Loading...</h1> : ""}
           {blogs.map((blog, index) => {
             return (
               <div key={index}>

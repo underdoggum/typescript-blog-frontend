@@ -150,12 +150,12 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
                   setBody(draftToHtml(convertToRaw(newState.getCurrentContent())));
                 }}
                 toolbar={{
-                  options: ["inline", "blockType", "fontSize", "list", "textAlign", "history", "embedded", "emoji", "image"],
+                  options: ["inline", "blockType", "fontSize", "colorPicker", "list", "textAlign", "history", "embedded", "emoji", "image"],
                   inline: { inDropdown: true },
                   list: { inDropdown: true },
                   textAlign: { inDropdown: true },
                   link: { inDropdown: true },
-                  history: { inDropdown: true }
+                  history: { inDropdown: true },
                 }}
               />
             </FormGroup>
