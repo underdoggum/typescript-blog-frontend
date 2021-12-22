@@ -3,7 +3,6 @@ export default interface IBlog {
   title: string;
   body: string;
   headline: string;
-  picture: string;
   createdAt: string;
   updatedAt: string;
 }

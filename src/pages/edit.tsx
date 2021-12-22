@@ -115,7 +115,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
           title={_id !== "" ? "Edit" : "Create"}
         />
         <Container className="mt-5 mb-5">
-          <Form>
+          <Form className="needs-validation">
             <FormGroup>
               <Label for="title">Title</Label>
               <Input
@@ -125,6 +125,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
                 id="title"
                 placeholder="Once upon a line..."
                 onChange={event => setTitle(event.target.value)}
+                required
               />
             </FormGroup>
             <FormGroup>
@@ -159,6 +160,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
               />
             </FormGroup>
             <FormGroup>
+              {/* need validation on this part */}
               <Button
                 outline={true}
                 onClick={() => {
