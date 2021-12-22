@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import IPageProps from "../interfaces/page";
+import { useParams, useNavigate } from "react-router-dom";
 import { ContentState, EditorState, convertToRaw } from "draft-js";
-import IBlog from "../interfaces/blog";
 import htmlToDraft from "html-to-draftjs";
 import draftToHtml from "draftjs-to-html";
 import { Editor } from "react-draft-wysiwyg";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import Navigation from "../components/navigation";
 import Header from "../components/header";
+import IPageProps from "../interfaces/page";
+import IBlog from "../interfaces/blog";
 // for pretty WYSIWYG styling
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
 
@@ -17,6 +17,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
   const params = useParams();
   const blogId = params.id;
   const url = "https://typescript-blog-backend.herokuapp.com/blogs/";
+  const navigate = useNavigate();
 
 
   const [_id, setId] = useState<string>("");
@@ -78,6 +79,8 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
       })
     } catch (error) {
       console.log(error);
+    } finally {
+      navigate("/");
     }
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,6 +100,8 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
       })
     } catch (error) {
       console.log(error);
+    } finally {
+      navigate("/");
     }
   }
 

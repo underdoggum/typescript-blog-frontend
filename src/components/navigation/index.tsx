@@ -7,7 +7,7 @@ const Navigation: React.FunctionComponent<INavigationProps> = props => {
   return (
     <Navbar color="light" light={true} sticky="top" expand="md">
       <Container>
-        <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
+        <Button outline={true}><NavbarBrand tag={Link} to="/">Home</NavbarBrand></Button>
         <Nav className="mr-auto" navbar />
         <Button outline={true} tag={Link} to="/edit">Create New Post</Button>
       </Container>

@@ -1,9 +1,7 @@
 // Many thanks to "The Nerdy Canuck" for support and help throughout creating this simpler MERN/typescript blog: https://www.youtube.com/channel/UCmG1UbEI0iFE1tAw2SyvvXg
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import Application from './application';

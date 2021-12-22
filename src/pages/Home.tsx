@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
 import Header from "../components/header";
 import Navigation from "../components/navigation";
+import BlogPreview from "../components/BlogPreview";
 import IPageProps from "../interfaces/page";
 import IBlog from "../interfaces/blog";
-import BlogPreview from "../components/BlogPreview";
 
  const HomePage: React.FunctionComponent<IPageProps> = props => {
 

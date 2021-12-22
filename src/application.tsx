@@ -7,13 +7,16 @@ import HomePage from "./pages/Home";
 
 export interface IApplicationProps {}
 
+// Note: second route for <EditPage /> is the "new" route
 const Application: React.FunctionComponent<IApplicationProps> = props => {
   return (
     <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/edit/:id" element={<EditPage />} />
         <Route path="/edit" element={<EditPage />} />
+
 
       </Routes>
     </main>
