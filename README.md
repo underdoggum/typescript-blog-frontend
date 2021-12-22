@@ -74,3 +74,4 @@ And after all, nobody wants to be stuck fixing menial bugs at 11pm the evening b
  - Implement user authentication/authorization
  - Use pictures/links on sidebars with modern tech news to simulate modern blog websites which pertain to the latest tech trends
  - Update styling on banner to change from the intro blog banner
+ - Implement unit-testing for more strictly testing any of these additional features
