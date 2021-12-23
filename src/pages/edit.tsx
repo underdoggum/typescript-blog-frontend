@@ -43,7 +43,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
     }
   }, []);
 
-  // note: per TypeScript, ALL parameters must be typecasted for functions
+  // note: per TypeScript, ALL parameters must be typed for functions
   const getBlog = async (id: string) => {
     try {
       const response = await fetch(url + id);
